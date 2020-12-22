@@ -1,0 +1,33 @@
+#### DEEPSPEECH ####
+
+En esta carpeta se han hecho experimentos con las dos lenguas incluidas como única, que le hemos llamado Euskañol. 
+Para entrenar se han usado las bases de datos de: 
+	CommonVoice castellano y euskara
+	Open SLR
+	Una parte de Aditu que se usa para entrenar 
+	Parte de Albayzin que tambien se usa para entrenar.
+
+Para el test y el desarrollo hemos usado las otras partes de Aditu y Albayzin dividos aleatoriamenete en dos grupos, una para el desarrollo y otra para testear.
+
+En la carpeta /manifest están los archivos .csv que se han usado.
+
+Los directorios 001,002,003 son 3 expermientos que se han hecho.
+
+En el 001 se han usado 512 neuronas para entrenar.
+En el 002 se han usado 1024 neuronas.
+En el 003 se han usado 2048 neuronas.
+
+Dentro de esas carpetas hay un archivo llamado stdout.log que es donde se han guardado los resultados.
+
+En la carpeta /ASR/System/deepspeech/Euskañol/ hay 2 script run.sh y summary.sh. 
+
+El archivo run.sh es el que se usa para empezar un experimento, y a este script hay que darle variables que necesita el deepspeech.
+
+Si se ejecuta el run.sh, éste creara una carpeta coon un numero, el siguiente que no exista, en este caso la carpeta 004, hay es donde se guardarán los resultados.
+
+El script summary.sh se usa para ver un resumen del experiemento. Para ejecutar hay que escribir despues del nombre del archivo el nuemero del experimento que quieras resumir. 
+
+Pro ejemplo: ./summary.sh 002.
+
+Esto te dará un unos numeros dividos en tres columnas. La primera es el numero de iteración, la segunda el loss de la base de datos del train, y la tercera el loss del desarrollo.
+Al final te dice, el WER, el CER, y el loss del conjunto test. También te da el tiempo que ha tardado el proceso.
